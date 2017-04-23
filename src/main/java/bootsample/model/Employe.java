@@ -1,5 +1,8 @@
 package bootsample.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,28 +10,25 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.GeneratorType;
 
-@Entity(name="EmployeeDTable")
-public class EmployeeDTable {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	
-	private String name;
-	private String surname;
-	private int salary;	
-	
-	public EmployeeDTable(String name, String surname, int salary) {
+@Entity(name="employedtable")
+public class Employe implements Serializable {
+
+	public Employe() {
+		
+	}
+	public Employe(String name, String surname, int salary) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.salary = salary;
 	}
-	
 	@Override
 	public String toString() {
-		return "EmployeeDTable [id=" + id + ", name=" + name + ", surname=" + surname + ", salary=" + salary + "]";
+		return "Employe [id=" + id + ", name=" + name + ", surname=" + surname + ", salary=" + salary + "]";
 	}
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	public int getId() {
 		return id;
 	}
@@ -53,8 +53,9 @@ public class EmployeeDTable {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-
-	
+	private String name;
+	private String surname;
+	private int salary;
 	
 	
 
