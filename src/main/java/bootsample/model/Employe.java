@@ -16,6 +16,7 @@ public class Employe implements Serializable {
 	public Employe() {
 		
 	}
+	
 	public Employe(String name, String surname, int salary) {
 		super();
 		this.name = name;

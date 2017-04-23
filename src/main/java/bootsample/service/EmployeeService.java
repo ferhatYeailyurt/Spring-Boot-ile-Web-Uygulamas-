@@ -32,5 +32,15 @@ public class EmployeeService {
 		
 	}
 	
+	public void save(Employe employe)
+	{
+		employeeRepository.save(employe);
+	}
+	
+	public void delete(int id)
+	{
+		employeeRepository.delete(id);
+	}
+	
 
 }
