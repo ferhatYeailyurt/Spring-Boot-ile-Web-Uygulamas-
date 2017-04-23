@@ -9,8 +9,7 @@ import bootsample.service.EmployeeService;
 @Controller
 public class EmployeeController {
 	
-	@Autowired
-	private EmployeeService emloyeService;
+
 	
 	@GetMapping("/home1")
 	public String test()

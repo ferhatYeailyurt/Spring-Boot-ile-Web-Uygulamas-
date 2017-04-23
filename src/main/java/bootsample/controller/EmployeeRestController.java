@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import bootsample.model.Employe;
+import bootsample.model.Employee;
 import bootsample.service.EmployeeService;
 
 @RestController
@@ -14,7 +14,7 @@ public class EmployeeRestController {
 	@Autowired
 	private EmployeeService emloyeService;
 	
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String test()
 	{
 		return "test başarılı";
@@ -31,7 +31,7 @@ public class EmployeeRestController {
 	@GetMapping("/save-employee")
 	public String saveEmloye(@RequestParam String name, @RequestParam String surname, @RequestParam int salary)
 	{
-		Employe employe=new Employe(name,surname,salary);
+		Employee employe=new Employee(name,surname,salary);
 		emloyeService.save(employe);
 		return "Employee saved.";
 	}

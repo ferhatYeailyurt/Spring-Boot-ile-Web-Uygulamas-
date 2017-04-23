@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import bootsample.dao.EmployeeRepository;
-import bootsample.model.Employe;
+import bootsample.model.Employee;
 
 @Service
 @Transactional
@@ -21,10 +21,10 @@ public class EmployeeService {
 	    this.employeeRepository = employeeRepository;
 	}
 	
-	public List<Employe> findAll()
+	public List<Employee> findAll()
 	{
-		List<Employe> emList= new ArrayList<>();
-		for(Employe entities: employeeRepository.findAll())
+		List<Employee> emList= new ArrayList<>();
+		for(Employee entities: employeeRepository.findAll())
 		{
 			emList.add(entities);
 		}
@@ -32,7 +32,7 @@ public class EmployeeService {
 		
 	}
 	
-	public void save(Employe employe)
+	public void save(Employee employe)
 	{
 		employeeRepository.save(employe);
 	}

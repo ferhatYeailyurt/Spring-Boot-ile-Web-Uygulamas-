@@ -11,13 +11,13 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GeneratorType;
 
 @Entity(name="employedtable")
-public class Employe implements Serializable {
+public class Employee implements Serializable {
 
-	public Employe() {
+	public Employee() {
 		
 	}
 	
-	public Employe(String name, String surname, int salary) {
+	public Employee(String name, String surname, int salary) {
 		super();
 		this.name = name;
 		this.surname = surname;
