@@ -29,6 +29,7 @@ public class Employe implements Serializable {
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id")
 	private int id;
 	public int getId() {
 		return id;

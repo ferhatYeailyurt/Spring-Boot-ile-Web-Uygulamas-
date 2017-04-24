@@ -1,9 +1,12 @@
 package bootsample.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity(name="deparment")
 public class Deparment {
@@ -14,6 +17,18 @@ public class Deparment {
 	private String name;
 	private String description;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_employee_id")
+	private Employe employe;
+	
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
+
 	public Deparment() {
 		
 	}
