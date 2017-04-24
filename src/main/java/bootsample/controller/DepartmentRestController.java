@@ -23,9 +23,9 @@ public class DepartmentRestController {
 	}
 	
 	@GetMapping("/save-deparment")
-	public String saveEmloye(@RequestParam String name,@RequestParam String description)
+	public String saveEmloye(@RequestParam String name,@RequestParam String description, @RequestParam Employe em_id)
 	{
-		Deparment deparmant=new Deparment(name,description);
+		Deparment deparmant=new Deparment(name,description,em_id);
 		deparmentService.save(deparmant);
 		return "Deparment saved.";
 	}

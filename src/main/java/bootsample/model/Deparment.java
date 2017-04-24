@@ -33,10 +33,11 @@ public class Deparment {
 		
 	}
 	
-	public Deparment(String name, String description) {
+	public Deparment(String name, String description, Employe em) {
 		super();
 		this.name = name;
 		this.description = description;
+		this.employe=em;
 	}
 	
 	@Override
