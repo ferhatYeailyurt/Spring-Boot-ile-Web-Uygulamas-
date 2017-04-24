@@ -3,6 +3,7 @@ package bootsample.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import bootsample.model.Employee;
 @Service
 @Transactional
 public class EmployeeService {
+	
 	
 	private final EmployeeRepository employeeRepository;
 
