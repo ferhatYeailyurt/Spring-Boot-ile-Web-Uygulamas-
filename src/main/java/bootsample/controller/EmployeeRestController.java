@@ -22,7 +22,7 @@ public class EmployeeRestController {
 	
 
 	
-	@GetMapping("/all-list")
+	@GetMapping("/all-list-employe")
 	private String allEmployee()
 	{
 		return emloyeService.findAll().toString();
