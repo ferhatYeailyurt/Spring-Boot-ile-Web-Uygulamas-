@@ -6,7 +6,7 @@ import bootsample.model.Deparment;
 import bootsample.model.Employe;
 
 public interface DeparmentRepository extends CrudRepository<Deparment, Integer>{
-
+//
 	
 	
 } 

@@ -36,5 +36,6 @@ public class DepartmentRestController {
 		deparmentService.delete(id);
 		return "Deparment delete.";
 	}
+	//
 
 }
