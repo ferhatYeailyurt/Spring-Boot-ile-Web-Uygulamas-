@@ -13,8 +13,8 @@
     
     <title>Mebitech Web App| Home</title>
     
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-     <link href="static/css/style.css" rel="stylesheet">
+       <link href="static/css/bootstrap.min.css" rel="stylesheet">
+       <link href="static/css/style.css" rel="stylesheet">
     
    
 		<script src="static/js/html5shiv.min.js"></script>
@@ -36,6 +36,39 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="container invisible-at-first" id="homeDiv">
+		<div class="jumbotron text-center">
+			<h1>Hos Geldiniz</h1>
+		</div>
+	</div>
+	
+	<div class="container text-center" id="tasksDiv">
+				<h3>Employee</h3>
+				<hr>
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered text-left">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Surname</th>
+								<th>Salary</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="employe" items="${employes}">
+								<tr>
+									<td>${employe.id}</td>
+									<td>${employe.name}</td>
+									<td>${employe.surname}</td>
+									<td>${employe.salary}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
 	
 	<script src="static/js/jquery-1.11.1.min.js"></script>    
     <script src="static/js/bootstrap.min.js"></script>

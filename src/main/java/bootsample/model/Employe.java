@@ -55,8 +55,13 @@ public class Employe implements Serializable {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "surname")
 	private String surname;
+	
+	@Column(name = "salary")
 	private int salary;
 	
 	
