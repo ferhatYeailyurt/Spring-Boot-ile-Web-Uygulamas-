@@ -30,7 +30,7 @@ public class EmployeeController {
 	@GetMapping("/all-employee")
 	public String allEmployee(HttpServletRequest request)
 	{
-		request.setAttribute("tasks", emloyeService.findAll());
+		request.setAttribute("employes", emloyeService.findAll());
 		request.setAttribute("mode", "MODE_TASKS");
 		return "index";
 	}
@@ -47,7 +47,7 @@ public class EmployeeController {
 	public String saveEmployee(@ModelAttribute Employe employe,BindingResult bindingResult,HttpServletRequest request)
 	{
 		emloyeService.save(employe);
-		request.setAttribute("tasks", emloyeService.findAll());
+		request.setAttribute("employes", emloyeService.findAll());
 		request.setAttribute("mode", "MODE_TASKS");
 		return "index";
 	}
@@ -60,11 +60,11 @@ public class EmployeeController {
 		return "index";
 	}
 	
-	@GetMapping("/delete-task")
+	@GetMapping("/delete-employee")
 	public String deleteEmployee(@RequestParam int id,HttpServletRequest request)
 	{
 		emloyeService.delete(id);
-		request.setAttribute("tasks", emloyeService.findAll());
+		request.setAttribute("employes", emloyeService.findAll());
 		request.setAttribute("mode", "MODE_TASKS");
 		return "index";
 	}   

@@ -30,6 +30,12 @@
 				<ul class="nav navbar-nav">
 					<li><a href="new-employee">New Employee</a></li>
 					<li><a href="all-employee">All Employee</a></li>
+					
+					<li><a href="new-employee">New Department</a></li>
+					<li><a href="all-employee">All Department</a></li>
+					
+					<li><a href="new-employee">New Meetings</a></li>
+					<li><a href="all-employee">All Meetings</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,16 +62,18 @@
 								<th>Surname</th>
 								<th>Salary</th>
 								<th>Deparment</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="task" items="${tasks}">
+							<c:forEach var="employee" items="${employes}">
 								<tr>
-									<td>${task.id}</td>
-									<td>${task.name}</td>
-									<td>${task.surname}</td>
-									<td>${task.salary}</td>
-									<td>${task.deparment.name}</td>
+									<td>${employee.id}</td>
+									<td>${employee.name}</td>
+									<td>${employee.surname}</td>
+									<td>${employee.salary}</td>
+									<td>${employee.deparment.name}</td>
+									<td><a href="delete-employee?id=${employee.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 									</tr>
 							</c:forEach>
 						</tbody>
