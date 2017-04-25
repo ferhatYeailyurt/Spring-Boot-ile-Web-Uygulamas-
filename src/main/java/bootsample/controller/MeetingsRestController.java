@@ -23,10 +23,17 @@ public class MeetingsRestController {
 		return meetingsSerrvice.findAll().toString();
 	}
 	
-	@GetMapping("/save-meetings")
+	/*@GetMapping("/save-meetings")
 	public String saveEmloye(@RequestParam String name,@RequestParam String description, @RequestParam Deparment dep_id)
 	{
 		Meetings meetings=new Meetings(name,description,dep_id);
+		meetingsSerrvice.save(meetings);
+		return "Meetings saved.";
+	}*/
+	@GetMapping("/save-meetings")
+	public String saveEmloyee(@RequestParam String name,@RequestParam String description, @RequestParam Deparment dep_id)
+	{
+		Meetings meetings = new Meetings(name,description,dep_id);
 		meetingsSerrvice.save(meetings);
 		return "Meetings saved.";
 	}

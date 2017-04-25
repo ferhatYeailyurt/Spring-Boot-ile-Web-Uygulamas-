@@ -17,27 +17,16 @@ public class Deparment {
 	private String name;
 	private String description;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_employee_id")
-	private Employe employe;
-	
-	public Employe getEmploye() {
-		return employe;
-	}
-
-	public void setEmploye(Employe employe) {
-		this.employe = employe;
-	}
 
 	public Deparment() {
 		
 	}
 	
-	public Deparment(String name, String description, Employe em) {
+	public Deparment(String name, String description) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.employe=em;
+		
 	}
 	
 	@Override

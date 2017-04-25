@@ -42,5 +42,10 @@ public class EmployeeService {
 		employeeRepository.delete(id);
 	}
 	
+	public Employe findEmployee(int id)
+	{
+		return employeeRepository.findOne(id);
+	}
+	
 
 }

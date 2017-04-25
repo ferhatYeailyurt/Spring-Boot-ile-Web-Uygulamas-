@@ -1,6 +1,8 @@
 package bootsample.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+
+import bootsample.controller.DepartmentRestController;
 
 @Entity(name="meetingsdtable")
 public class Meetings implements Serializable{
@@ -24,29 +29,29 @@ public class Meetings implements Serializable{
 	public Meetings() {
 		
 	}
-	public Meetings(String name, String description, Deparment deparment) {
+	public Meetings(String name, String description, List<Deparment> deparments) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.deparment = deparment;
+		this.deparments = deparments;
 	}
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_deparment_id")
-	private Deparment deparment;
+	private List<Deparment> deparments;
 	
 	@Override
 	public String toString() {
-		return "Meetings [id=" + id + ", name=" + name + ", description=" + description + ", deparment=" + deparment
+		return "Meetings [id=" + id + ", name=" + name + ", description=" + description + ", deparment=" + deparments.get(0).getId()
 				+ "]";
 	}
 	
 	
-	public Deparment getDeparment() {
-		return deparment;
+	public List<Deparment> getDeparments() {
+		return deparments;
 	}
 	public void setDeparment(Deparment deparment) {
-		this.deparment = deparment;
+		this.deparments = deparments;
 	}
 	
 	
@@ -68,6 +73,17 @@ public class Meetings implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public void addDepartman(Deparment deparment){
+		this.deparments.add(deparment);
+	}
+	public Meetings( String name, String description, Deparment deparment) {
+		super();
+		deparments = new ArrayList<Deparment>();
+		this.name = name;
+		this.description = description;
+		addDepartman(deparment);
 	}
 
 

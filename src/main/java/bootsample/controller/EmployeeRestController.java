@@ -22,7 +22,7 @@ public class EmployeeRestController {
 	
 
 	
-	@GetMapping("/all-list-employe")
+/*	@GetMapping("/all-list-employe")
 	private String allEmployee()
 	{
 		return emloyeService.findAll().toString();
@@ -41,6 +41,6 @@ public class EmployeeRestController {
 	{
 		emloyeService.delete(id);
 		return "Employee delete.";
-	}
+	}*/
 
 }
