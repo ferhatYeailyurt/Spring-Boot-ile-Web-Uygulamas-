@@ -52,7 +52,7 @@ public class EmployeeController {
 		return "index";
 	}
 	
-	@GetMapping("/update-task")
+	@GetMapping("/update-employee")
 	public String updateEmployee(@RequestParam int id,HttpServletRequest request)
 	{
 		request.setAttribute("task", emloyeService.findEmployee(id));

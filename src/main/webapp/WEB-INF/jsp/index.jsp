@@ -45,7 +45,7 @@
 		<c:when test="${mode == 'MODE_HOME'}">
 			<div class="container" id="homeDiv">
 				<div class="jumbotron text-center">
-					<h1>Welcome to Webitech Web App</h1>
+					<h1>Welcome to Mebitech Web App</h1>
 				</div>
 			</div>
 		</c:when>
@@ -63,6 +63,7 @@
 								<th>Salary</th>
 								<th>Deparment</th>
 								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -73,7 +74,9 @@
 									<td>${employee.surname}</td>
 									<td>${employee.salary}</td>
 									<td>${employee.deparment.name}</td>
+									<td><a href="update-employee?id=${employee.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									<td><a href="delete-employee?id=${employee.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+									
 									</tr>
 							</c:forEach>
 						</tbody>
@@ -106,9 +109,9 @@
 						</div>				
 					</div>	
 					<div class="form-group">
-						<label class="control-label col-md-3">Deparment id</label>
+						<label class="control-label col-md-3">Department</label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="deparment" value="${task.deparment}"/>
+							<input type="text" class="form-control" name="deparment" value="${task.deparment.name}"/>
 						</div>				
 					</div>	
 					<div class="form-group">

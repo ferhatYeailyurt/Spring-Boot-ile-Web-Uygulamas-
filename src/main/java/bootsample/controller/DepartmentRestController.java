@@ -11,7 +11,7 @@ import bootsample.model.Employe;
 import bootsample.service.DeparmentService;
 import bootsample.service.EmployeeService;
 
-@Controller
+@RestController
 public class DepartmentRestController {
 	
 	@Autowired
