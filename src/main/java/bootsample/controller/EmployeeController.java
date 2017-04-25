@@ -27,7 +27,7 @@ public class EmployeeController {
 		return "index";
 	}
 	
-	@GetMapping("/all-tasks")
+	@GetMapping("/all-employee")
 	public String allEmployee(HttpServletRequest request)
 	{
 		request.setAttribute("tasks", emloyeService.findAll());
@@ -36,14 +36,14 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("/new-task")
+	@GetMapping("/new-employee")
 	public String newEmployee(HttpServletRequest request)
 	{
 		request.setAttribute("mode", "MODE_NEW");
 		return "index";
 	}
 	
-	@PostMapping("/save-task")
+	@PostMapping("/save-employee")
 	public String saveEmployee(@ModelAttribute Employe employe,BindingResult bindingResult,HttpServletRequest request)
 	{
 		emloyeService.save(employe);

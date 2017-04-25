@@ -28,8 +28,8 @@
 			<a href="/" class="navbar-brand">Bootsample</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="new-task">New Task</a></li>
-					<li><a href="all-tasks">All Tasks</a></li>
+					<li><a href="new-employee">New Employee</a></li>
+					<li><a href="all-employee">All Employee</a></li>
 				</ul>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 		</c:when>
 		<c:when test="${mode == 'MODE_TASKS'}">
 			<div class="container text-center" id="tasksDiv">
-				<h3>My Tasks</h3>
+				<h3>Employee</h3>
 				<hr>
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered text-left">
@@ -77,7 +77,7 @@
 			<div class="container text-center">
 				<h3>Manage Employee</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-task">
+				<form class="form-horizontal" method="POST" action="save-employee">
 					<input type="hidden" name="id" value="${task.id}"/>
 					<div class="form-group">
 						<label class="control-label col-md-3">Name</label>
