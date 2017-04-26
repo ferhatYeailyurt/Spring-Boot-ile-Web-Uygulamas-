@@ -41,6 +41,10 @@ public class DeparmentService {
 	{
 		deparmentRepository.delete(id);
 	}
+	public Deparment findEmployee(int id)
+	{
+		return deparmentRepository.findOne(id);
+	}
 	
 
 }

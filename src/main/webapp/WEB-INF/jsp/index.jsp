@@ -31,8 +31,8 @@
 					<li><a href="new-employee">New Employee</a></li>
 					<li><a href="all-employee">All Employee</a></li>
 					
-					<li><a href="new-employee">New Department</a></li>
-					<li><a href="all-employee">All Department</a></li>
+					<li><a href="new-department">New Department</a></li>
+					<li><a href="all-department">All Department</a></li>
 					
 					<li><a href="new-employee">New Meetings</a></li>
 					<li><a href="all-employee">All Meetings</a></li>
@@ -49,6 +49,41 @@
 				</div>
 			</div>
 		</c:when>
+		
+		<c:when test="${mode=='MODE_TASKS_DEP' }">
+		
+		<div class="container text-center" id="tasksDiv">
+				<h3>Department</h3>
+				<hr>
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered text-left">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Update</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="department" items="${departments}">
+								<tr>
+									<td>${department.id}</td>
+									<td>${department.name}</td>
+									<td>${department.description}</td>
+									<td><a href="update-department?id=${department.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="delete-department?id=${department.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+									
+									</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		
+		
+		</c:when>
 		<c:when test="${mode == 'MODE_TASKS'}">
 			<div class="container text-center" id="tasksDiv">
 				<h3>Employee</h3>
@@ -62,8 +97,8 @@
 								<th>Surname</th>
 								<th>Salary</th>
 								<th>Deparment</th>
-								<th></th>
-								<th></th>
+								<th>Update</th>
+								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -114,6 +149,32 @@
 							<input type="text" class="form-control" name="deparment" value="${task.deparment.name}"/>
 						</div>				
 					</div>	
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary" value="Save"/>
+					</div>
+				</form>
+			</div>
+		</c:when>
+		
+		
+		<c:when test="${mode == 'MODE_NEW_DEP' || mode == 'MODE_UPDATE_DEP'}">
+			<div class="container text-center">
+				<h3>Manage Department</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="save-department">
+					<input type="hidden" name="id" value="${task.id}"/>
+					<div class="form-group">
+						<label class="control-label col-md-3">Name</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="name" value="${task.name}"/>
+						</div>				
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Description</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="description" value="${task.description}"/>
+						</div>				
+					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-primary" value="Save"/>
 					</div>
