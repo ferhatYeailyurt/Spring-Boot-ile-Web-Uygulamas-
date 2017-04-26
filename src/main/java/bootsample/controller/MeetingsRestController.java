@@ -29,7 +29,7 @@ public class MeetingsRestController {
 		Meetings meetings=new Meetings(name,description,dep_id);
 		meetingsSerrvice.save(meetings);
 		return "Meetings saved.";
-	}*/
+	}
 	@GetMapping("/save-meetings")
 	public String saveEmloyee(@RequestParam String name,@RequestParam String description, @RequestParam Deparment dep_id)
 	{
@@ -43,6 +43,6 @@ public class MeetingsRestController {
 	{
 		meetingsSerrvice.delete(id);
 		return "Meetings delete.";
-	}
+	}*/
 
 }

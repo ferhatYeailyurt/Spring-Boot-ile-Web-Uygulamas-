@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import bootsample.dao.MeetingsRepository;
 import bootsample.model.Deparment;
+import bootsample.model.Employe;
 import bootsample.model.Meetings;
 
 @Service
@@ -40,6 +41,10 @@ public class MeetingsSerrvice {
 	public void delete(int id)
 	{
 		meetingsRepository.delete(id);
+	}
+	public Meetings findMeetings(int id)
+	{
+		return meetingsRepository.findOne(id);
 	}
 
 }

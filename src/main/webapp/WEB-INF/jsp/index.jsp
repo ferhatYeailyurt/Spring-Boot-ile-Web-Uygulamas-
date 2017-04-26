@@ -25,7 +25,7 @@
 
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
-			<a href="/" class="navbar-brand">Bootsample</a>
+			<a href="/" class="navbar-brand">Index</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="new-employee">New Employee</a></li>
@@ -34,8 +34,8 @@
 					<li><a href="new-department">New Department</a></li>
 					<li><a href="all-department">All Department</a></li>
 					
-					<li><a href="new-employee">New Meetings</a></li>
-					<li><a href="all-employee">All Meetings</a></li>
+					<li><a href="new-meetings">New Meetings</a></li>
+					<li><a href="all-meetings">All Meetings</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,6 +49,46 @@
 				</div>
 			</div>
 		</c:when>
+		
+		
+		
+		<c:when test="${mode=='MODE_TASKS_MEE' }">
+		
+		<div class="container text-center" id="tasksDiv">
+				<h3>Meetings</h3>
+				<hr>
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered text-left">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Department</th>
+								<th>Update</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="meeting" items="${meetings}">
+								<tr>
+									<td>${meeting.id}</td>
+									<td>${meeting.name}</td>
+									<td>${meeting.description}</td>
+									<td>${meeting.deparments}</td>
+									<td><a href="update-meeting?id=${meeting.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="delete-meeting?id=${meeting.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+									
+									</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		
+		
+		</c:when>
+		
 		
 		<c:when test="${mode=='MODE_TASKS_DEP' }">
 		
@@ -180,7 +220,36 @@
 					</div>
 				</form>
 			</div>
-		</c:when>		
+		</c:when>	
+		
+		
+		<c:when test="${mode == 'MODE_NEW_MEE' || mode == 'MODE_UPDATE_MEE'}">
+			<div class="container text-center">
+				<h3>Manage Meetings</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="save-meetings">
+					<input type="hidden" name="id" value="${task.id}"/>
+					<div class="form-group">
+						<label class="control-label col-md-3">Name</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="name" value="${task.name}"/>
+						</div>				
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Surname</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="description" value="${task.description}"/>
+						</div>				
+					</div>	
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary" value="Save"/>
+					</div>
+				</form>
+			</div>
+		</c:when>
+		
+		
+			
 	</c:choose>
 
 	<script src="static/js/jquery-1.11.1.min.js"></script>    

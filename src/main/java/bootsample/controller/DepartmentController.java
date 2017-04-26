@@ -48,7 +48,7 @@ public class DepartmentController {
 	@GetMapping("/update-department")
 	public String updateDepartment(@RequestParam int id,HttpServletRequest request)
 	{
-		request.setAttribute("task", deparmentService.findEmployee(id));
+		request.setAttribute("task", deparmentService.findDepartment(id));
 		request.setAttribute("mode", "MODE_UPDATE_DEP");
 		return "index";
 	}
