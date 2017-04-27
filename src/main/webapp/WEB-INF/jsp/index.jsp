@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
 <head>
@@ -11,10 +10,13 @@
     <meta http-equiv="Cache-Control" content="no-cache"> 
     <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
     
-    <title>Webitech Web App| Home</title>
+    <title>Mebitech Web App| Home</title>
     
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
      <link href="static/css/style.css" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/<react-version>/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/<react-version>/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/<version>/react-bootstrap.min.js"></script>
     
     
 		<script src="static/js/html5shiv.min.js"></script>
@@ -34,8 +36,8 @@
 					<li><a href="new-department">New Department</a></li>
 					<li><a href="all-department">All Department</a></li>
 					
-					<li><a href="new-meetings">New Meetings</a></li>
-					<li><a href="all-meetings">All Meetings</a></li>
+					<li><a href="new-meetingss">New Meetings</a></li>
+					<li><a href="all-meetingss">All Meetings</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,9 +54,8 @@
 		
 		
 		
-		<c:when test="${mode=='MODE_TASKS_MEE' }">
-		
-		<div class="container text-center" id="tasksDiv">
+		<c:when test="${mode == 'MODE_TASKS_MEE'}">
+			<div class="container text-center" id="tasksDiv">
 				<h3>Meetings</h3>
 				<hr>
 				<div class="table-responsive">
@@ -64,20 +65,20 @@
 								<th>Id</th>
 								<th>Name</th>
 								<th>Description</th>
-								<th>Department</th>
+								<th>Deparment</th>
 								<th>Update</th>
 								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="meeting" items="${meetings}">
+							<c:forEach var="meetingf" items="${meetingsss}">
 								<tr>
-									<td>${meeting.id}</td>
-									<td>${meeting.name}</td>
-									<td>${meeting.description}</td>
-									<td>${meeting.deparments}</td>
-									<td><a href="update-meeting?id=${meeting.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-									<td><a href="delete-meeting?id=${meeting.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+									<td>${meetingf.id}</td>
+									<td>${meetingf.name}</td>
+									<td>${meetingf.description}</td>
+									<td>${meetingf.deparments.get(0).getName()}</td>
+									<td><a href="update-meetingss?id=${meetingf.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="delete-meetingss?id=${meetingf.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 									
 									</tr>
 							</c:forEach>
@@ -85,8 +86,6 @@
 					</table>
 				</div>
 			</div>
-		
-		
 		</c:when>
 		
 		
@@ -227,7 +226,7 @@
 			<div class="container text-center">
 				<h3>Manage Meetings</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-meetings">
+				<form class="form-horizontal" method="POST" action="save-meetingss">
 					<input type="hidden" name="id" value="${task.id}"/>
 					<div class="form-group">
 						<label class="control-label col-md-3">Name</label>
@@ -241,6 +240,12 @@
 							<input type="text" class="form-control" name="description" value="${task.description}"/>
 						</div>				
 					</div>	
+					<div class="form-group">
+						<label class="control-label col-md-3">Departmen</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="deparments" value="${task.deparments.get(0).getName()}"/>
+						</div>				
+					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-primary" value="Save"/>
 					</div>

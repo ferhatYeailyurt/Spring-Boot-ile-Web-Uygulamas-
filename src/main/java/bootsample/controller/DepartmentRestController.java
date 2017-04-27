@@ -23,11 +23,11 @@ public class DepartmentRestController {
 	private DeparmentService deparmentService;
 	
 	
-	@GetMapping("/all-list-deparment")
+	/*@GetMapping("/all-list-deparment")
 	private String allEmployee()
 	{
 		return deparmentService.findAll().toString();
-	}
+	}*/
 
 	
 	/*@GetMapping("/save-deparment")

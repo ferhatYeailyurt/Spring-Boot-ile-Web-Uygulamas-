@@ -40,6 +40,12 @@ public class Meetings implements Serializable{
 	@JoinColumn(name = "fk_deparment_id")
 	private List<Deparment> deparments;
 	
+	public List<Deparment> getDeparments() {
+		return deparments;
+	}
+	public void setDeparments(List<Deparment> deparments) {
+		this.deparments = deparments;
+	}
 	@Override
 	public String toString() {
 		return "Meetings [id=" + id + ", name=" + name + ", description=" + description + ", deparment=" + deparments.get(0).getId()
@@ -47,9 +53,7 @@ public class Meetings implements Serializable{
 	}
 	
 	
-	public List<Deparment> getDeparments() {
-		return deparments;
-	}
+
 	public void setDeparment(Deparment deparment) {
 		this.deparments = deparments;
 	}

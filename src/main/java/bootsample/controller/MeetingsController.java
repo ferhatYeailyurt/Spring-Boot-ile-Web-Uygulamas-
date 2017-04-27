@@ -21,44 +21,44 @@ public class MeetingsController {
 	@Autowired
 	private MeetingsSerrvice meetingsSerrvice;
 	
-	@GetMapping("/all-meetings")
-	public String allMeetings(HttpServletRequest request)
+	@GetMapping("/all-meetingss")
+	public String allEmployee(HttpServletRequest request)
 	{
-		request.setAttribute("meetings", meetingsSerrvice.findAll());
+		request.setAttribute("meetingsss", meetingsSerrvice.findAll());
 		request.setAttribute("mode", "MODE_TASKS_MEE");
 		return "index";
 	}
 	
 	
-	@GetMapping("/new-meetings")
-	public String newMeetings(HttpServletRequest request)
+	@GetMapping("/new-meetingss")
+	public String newEmployee(HttpServletRequest request)
 	{
 		request.setAttribute("mode", "MODE_NEW_MEE");
 		return "index";
 	}
 	
-	@PostMapping("/save-meetings")
-	public String saveMeetings(@ModelAttribute Meetings meetings,BindingResult bindingResult,HttpServletRequest request)
+	@PostMapping("/save-meetingss")
+	public String saveEmployee(@ModelAttribute Meetings meetings,BindingResult bindingResult,HttpServletRequest request)
 	{
 		meetingsSerrvice.save(meetings);
-		request.setAttribute("meetings", meetingsSerrvice.findAll());
+		request.setAttribute("meetingsss", meetingsSerrvice.findAll());
 		request.setAttribute("mode", "MODE_TASKS_MEE");
 		return "index";
 	}
 	
-	@GetMapping("/update-meetings")
-	public String updateMeetings(@RequestParam int id,HttpServletRequest request)
+	@GetMapping("/update-meetingss")
+	public String updateEmployee(@RequestParam int id,HttpServletRequest request)
 	{
 		request.setAttribute("task", meetingsSerrvice.findMeetings(id));
 		request.setAttribute("mode", "MODE_UPDATE_MEE");
 		return "index";
 	}
 	
-	@GetMapping("/delete-meetings")
-	public String deleteMeetings(@RequestParam int id,HttpServletRequest request)
+	@GetMapping("/delete-meetingss")
+	public String deleteEmployee(@RequestParam int id,HttpServletRequest request)
 	{
 		meetingsSerrvice.delete(id);
-		request.setAttribute("meetings", meetingsSerrvice.findAll());
+		request.setAttribute("meetingsss", meetingsSerrvice.findAll());
 		request.setAttribute("mode", "MODE_TASKS_MEE");
 		return "index";
 	}   
